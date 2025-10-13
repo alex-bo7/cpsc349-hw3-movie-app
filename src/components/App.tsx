@@ -1,5 +1,6 @@
 // 
 
+import Filter from "./Filter/Filter"
 import Title from "./Title/Title"
 
 const App = () => {
@@ -7,7 +8,7 @@ const App = () => {
     return (
         <>
             <Title />
-            <p>app</p>
+            <Filter />
         </>
     )
 }

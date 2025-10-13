@@ -1,0 +1,17 @@
+.form {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    background-color: var(--secondary-blue);
+}
+
+.input-txt,
+.selection {
+    border: none;
+    border-radius: 0.25rem;
+}
+
+.input-txt {
+    padding: 8px 12px;
+}

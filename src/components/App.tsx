@@ -1,6 +1,7 @@
 // 
 
 import Filter from "./Filter/Filter"
+import Pagination from "./Pagination/Pagination"
 import Title from "./Title/Title"
 
 const App = () => {
@@ -9,6 +10,7 @@ const App = () => {
         <>
             <Title />
             <Filter />
+            <Pagination />
         </>
     )
 }

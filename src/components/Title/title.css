@@ -1,0 +1,7 @@
+.title-header {
+    font-weight: bold;
+    text-align: center;
+    padding: 3rem 0;
+    background-color: var(--pirmary-blue);
+    color: #fff;
+}

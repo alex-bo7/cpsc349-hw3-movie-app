@@ -1,16 +1,12 @@
-import { useEffect, useState } from "react"
-import type { MovieResult } from "../types/tmdb"
+import { useState } from "react"
 import Filter from "./Filter/Filter"
 import Pagination from "./Pagination/Pagination"
 import Title from "./Title/Title"
 import MovieGrid from "./MovieGrid/MovieGrid"
-
-const TMDB_HTTPS: string = "https://api.themoviedb.org/3"
+import useFetchMovies from "../hooks/useFetchMovies"
 
 const App = () => {
-    const [movieData, setMovieData] = useState<MovieResult[]>([])
     const [currentPage, setCurrentPage] = useState<number>(1)
-    const [maxPages, setMaxPages] = useState<number>(1)
 
     function handleIncrementPage() {
         if (currentPage < maxPages)
@@ -26,28 +22,8 @@ const App = () => {
         }
     }
 
-    async function fetchMovies() {
-        const url = new URL(`${TMDB_HTTPS}/movie/popular`)
-        url.searchParams.set("api_key", import.meta.env.VITE_TMDB_API_KEY)
-        url.searchParams.set("page", currentPage.toString())
-
-        try {
-            const responce = await fetch(url)
-            const data = await responce.json()
-
-            console.log(data)
-            setMovieData(data.results)
-            setCurrentPage(data.page)
-            setMaxPages(data.total_pages)
-        }
-        catch(error) {
-            console.error(error)
-        }
-    }
-
-    useEffect(() => {
-        fetchMovies()
-    }, [currentPage])
+    const { movieData, maxPages } = useFetchMovies(currentPage, "", "")
+    // movie titles have $ in front of them
 
     return (
         <>

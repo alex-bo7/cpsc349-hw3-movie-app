@@ -1,4 +1,5 @@
 import { useState } from "react"
+import type { SortQuery } from "../types/tmdb"
 import Filter from "./Filter/Filter"
 import Pagination from "./Pagination/Pagination"
 import Title from "./Title/Title"
@@ -7,6 +8,8 @@ import useFetchMovies from "../hooks/useFetchMovies"
 
 const App = () => {
     const [currentPage, setCurrentPage] = useState<number>(1)
+    const [searchQuery, setSearchQuery] = useState<string>("")
+    const [sortQuery, setSortQuery] = useState<SortQuery>("" as SortQuery)
 
     function handleIncrementPage() {
         if (currentPage < maxPages)
@@ -22,14 +25,21 @@ const App = () => {
         }
     }
 
-    const { movieData, maxPages } = useFetchMovies(currentPage, "", "")
+    function handleSearchQuery(e: React.ChangeEvent<HTMLInputElement>) {
+        setSearchQuery(e.target.value)
+    }
+
+    function handleSortQuery(e: React.ChangeEvent<HTMLSelectElement>) {
+        setSortQuery(e.target.value as SortQuery)
+    }
+
+    const { movieData, maxPages } = useFetchMovies(currentPage, searchQuery, sortQuery)
     // movie titles have $ in front of them
 
     return (
         <>
-            {/* fns to change results data */}
             <Title />
-            <Filter />
+            <Filter handleInputChange={handleSearchQuery} handleSelection={handleSortQuery}/>
             <MovieGrid movieData={movieData} />
             <Pagination 
                 currentPage={currentPage} 

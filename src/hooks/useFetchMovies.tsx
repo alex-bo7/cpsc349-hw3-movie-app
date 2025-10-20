@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
-import type { MovieResult } from "../types/tmdb";
+import type { MovieResult, SortQuery } from "../types/tmdb";
 
 const TMDB_HTTPS: string = "https://api.themoviedb.org/3"
 
 export default function useFetchMovies(
-    currentPage: number, searchQuery: string, sortQuery: string) {
+    currentPage: number, searchQuery: string, sortQuery: SortQuery) {
     const [movieData, setMovieData] = useState<MovieResult[]>([])
     const [maxPages, setMaxPages] = useState<number>(1)
 
     async function fetchMovies() {
         let url: URL
-        if (searchQuery && sortQuery || searchQuery) {
+        if (searchQuery) {
             url = new URL(`${TMDB_HTTPS}/search/movie`)
             url.searchParams.set("query", encodeURIComponent(searchQuery))
         }

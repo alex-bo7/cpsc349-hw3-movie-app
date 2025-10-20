@@ -14,3 +14,11 @@ export interface MovieResult {
   vote_average: number;
   vote_count: number;
 }
+
+export type SortQuery =
+  | ""
+  | "popularity.desc"
+  | "vote_average.desc"
+  | "vote_average.asc"
+  | "release_date.desc"
+  | "release_date.asc";

@@ -12,16 +12,16 @@ export default function useFetchMovies(
         let url: URL
         if (searchQuery) {
             url = new URL(`${TMDB_HTTPS}/search/movie`)
-            url.searchParams.set("query", encodeURIComponent(searchQuery))
+            url.searchParams.set("query", searchQuery)
         }
         else if (sortQuery) {
             url = new URL(`${TMDB_HTTPS}/discover/movie`);
-            url.searchParams.set("sort_by", encodeURIComponent(sortQuery))
+            url.searchParams.set("sort_by", sortQuery)
         }
         else {
             url = new URL(`${TMDB_HTTPS}/movie/popular`)
         }
-        url.searchParams.set("api_key", encodeURIComponent(import.meta.env.VITE_TMDB_API_KEY))
+        url.searchParams.set("api_key", import.meta.env.VITE_TMDB_API_KEY)
         url.searchParams.set("page", currentPage.toString())
 
         try {

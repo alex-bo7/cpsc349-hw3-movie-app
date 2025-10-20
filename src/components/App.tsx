@@ -12,15 +12,13 @@ const App = () => {
     const [sortQuery, setSortQuery] = useState<SortQuery>("" as SortQuery)
 
     function handleIncrementPage() {
-        if (currentPage < maxPages)
-        {
+        if (currentPage < maxPages) {
             setCurrentPage(prevCurrentPage => prevCurrentPage + 1)
         }
     }
 
     function HandleDecrementPage() {
-        if (currentPage > 1)
-        {
+        if (currentPage > 1) {
             setCurrentPage(prevCurrentPage => prevCurrentPage - 1)
         }
     }
@@ -34,7 +32,6 @@ const App = () => {
     }
 
     const { movieData, maxPages } = useFetchMovies(currentPage, searchQuery, sortQuery)
-    // movie titles have $ in front of them
 
     return (
         <>

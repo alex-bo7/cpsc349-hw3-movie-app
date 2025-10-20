@@ -17,11 +17,11 @@ const MovieCard = (props: MovieCardProps) => {
             <img
                 src={(props.poster_path) ? fullImageUrl : placeholderImgUrl}
                 className="movie-img"
-                alt="Movie poster for ${title}"
+                alt={`Movie poster for ${props.title}`}
             />
-            <h3 className="movie-title">${props.title}</h3>
-            <p className="movie-release">Release Date: ${props.release_date}</p>
-            <p className="movie-rating">Rating: ${props.vote_average}</p>
+            <h3 className="movie-title">{props.title}</h3>
+            <p className="movie-release">Release Date: {props.release_date}</p>
+            <p className="movie-rating">Rating: {props.vote_average}</p>
         </article>
     )
 }

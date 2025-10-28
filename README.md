@@ -1,73 +1,47 @@
-# React + TypeScript + Vite
+# CPSC 349 - Web Front-End Engineering  
+## Homework 3: React Exercise  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Author:** Alexandro Nino  
+**Section:** CPSC 349-09  
+**Email:** alexandro.nino@csu.fullerton.edu  
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Objective
+This assignment demonstrates the ability to:
+- Build a React web page from scratch.
+- Reproduce a demo page’s layout and interactivity using React components, state, and props.
+- Strengthen skills for generating dynamic HTML output and managing client-side rendering.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
+- **Movie Display:**  
+  Fetches data from [TMDB (The Movie Database) API](https://developer.themoviedb.org/reference/intro)  
+  Displays:
+  - Movie poster  
+  - Title  
+  - Release date  
+  - Average rating  
 
-## Expanding the ESLint configuration
+- **Pagination:**  
+  Shows 20 movies per page with *Previous* and *Next* buttons.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Search:**  
+  Allows users to search movies by title.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Sorting:**  
+  Users can sort by:
+  - Release date (ascending/descending)  
+  - Average rating (ascending/descending)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **Responsive Design:**  
+  CSS layout adapts to different screen sizes without external UI frameworks.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Technologies Used
+- React (v18+)
+- TypeScript (optional enhancement)
+- HTML5, CSS3, JavaScript (ES6)
+- TMDB API

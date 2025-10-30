@@ -7,6 +7,11 @@
 
 ---
 
+## Live Demo
+https://alexnino-hw3-movieapp.netlify.app/
+
+---
+
 ## Objective
 This assignment demonstrates the ability to:
 - Build a React web page from scratch.
